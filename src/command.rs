@@ -552,6 +552,7 @@ impl<'a> TryFrom<&'a [u8]> for CommandView<'a> {
 }
 
 impl<'a> CommandView<'a> {
+    #[inline(never)]
     pub fn to_owned<const S: usize>(&self) -> Result<Command<S>, FromSliceError> {
         let &CommandView {
             class,
